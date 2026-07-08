@@ -59,18 +59,41 @@ BioLinkBERT (`michiyasunaga/BioLinkBERT-base`) is downloaded automatically from 
 
 > The examples below use the **MSI** knowledge graph. The same pipeline applies to the other four BKGs (PrimeKG, Hetionet, SuppKG, KEGG50k) once each is preprocessed into the same `graph.txt` / `nodetypes.tsv` / `dda_labels.tsv` format.
 
-### MSI data (download)
+---
+## Datasets
+
+All five knowledge graphs used in this study are publicly available from their original sources. Due to their respective licenses, **we do not redistribute the datasets (raw or processed) in this repository**; please obtain them directly from the links below.
+
+| Knowledge graph | Source | Reference |
+|---|---|---|
+| **MSI** | https://github.com/snap-stanford/multiscale-interactome | Ruiz et al., *Nat Commun* 2021 |
+| **PrimeKG** | https://dataverse.harvard.edu/dataverse/primekg | Chandak et al., *Sci Data* 2023 |
+| **Hetionet** | https://het.io — https://github.com/hetio/hetionet | Himmelstein et al., *eLife* 2017 |
+| **SuppKG** | [https://github.com/rebeccawyq/SuppKG](https://github.com/biothings/SuppKG) | Schutte et al., *J Biomed Inform* 2022 |
+| **KEGG50k** | [https://github.com/mdnunez/kegg50k](https://figshare.com/s/bbfc7b82d17e0b8b6a43) | Kanehisa et al., *Nucleic Acids Res* 2017 |
+
+Each KG must be preprocessed into the common format used by CAREPath:
+
+- `graph.txt` — edge list of the unified interaction graph
+- `nodetypes.tsv` — node type annotations (drug / disease / gene)
+- `dda_labels.tsv` — labeled drug–disease pairs (positives + sampled negatives)
+- `7_drug_classification_df.tsv` — ATC drug classes (for drug context pooling)
+
+Preprocessing scripts are provided in `scripts/`. The MSI pipeline (`scripts/preprocess.py`) is documented below as a worked example; the other four KGs follow the same target format.
+
+---
+
+### MSI (worked example)
+
 We use the Multiscale Interactome (MSI) resources provided by the official repository:
 https://github.com/snap-stanford/multiscale-interactome
 
-We download MSI supplementary datasets **#1–#7**. In our pipeline:
-- **#1–#5** (interaction datasets) are used to construct the unified interaction graph (`graph.txt`) and node types (`nodetypes.tsv`).
-- **#6** (approved drug–disease pairs) is used as the positive label set, which we convert into `dda_labels.tsv` and augment with **random negative sampling**.
-- **#7** (ATC drug classes) is used for ATC-prefix–based drug context pooling in the mechanism-context module.
+We download MSI supplementary datasets **#1–#7**:
+- **#1–#5** (interaction datasets) → unified interaction graph (`graph.txt`) and node types (`nodetypes.tsv`)
+- **#6** (approved drug–disease pairs) → positive label set, converted into `dda_labels.tsv` and augmented with **random negative sampling**
+- **#7** (ATC drug classes) → ATC-prefix–based drug context pooling
 
 > The preprocessing step keeps the extracted MSI files under `data/raw/msi/extracted/`. The embedding step reads these raw files to map node IDs to human-readable drug/disease/gene names, so do not delete that folder after preprocessing.
-
-> We do not redistribute MSI data (raw or processed) in this repository. Please obtain the raw files from the official MSI release.
 
 ---
 ## 0) Preprocess data
