@@ -68,7 +68,7 @@ All five knowledge graphs used in this study are publicly available from their o
 |---|---|---|
 | **MSI** | https://github.com/snap-stanford/multiscale-interactome | Ruiz et al., *Nat Commun* 2021 |
 | **PrimeKG** | https://dataverse.harvard.edu/dataverse/primekg | Chandak et al., *Sci Data* 2023 |
-| **Hetionet** | https://het.io — https://github.com/hetio/hetionet | Himmelstein et al., *eLife* 2017 |
+| **Hetionet** | https://github.com/hetio/hetionet | Himmelstein et al., *eLife* 2017 |
 | **SuppKG** | [https://github.com/rebeccawyq/SuppKG](https://github.com/biothings/SuppKG) | Schutte et al., *J Biomed Inform* 2022 |
 | **KEGG50k** | [https://github.com/mdnunez/kegg50k](https://figshare.com/s/bbfc7b82d17e0b8b6a43) | Kanehisa et al., *Nucleic Acids Res* 2017 |
 
