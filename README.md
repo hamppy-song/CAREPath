@@ -16,7 +16,7 @@ This repository includes code to:
 ---
 
 ## What CAREPath does (high-level)
-![CAREPath pipeline](carepath/pipeline.png)
+![CAREPath pipeline](carepath/pipeline_carepath.png)
 
 
 Given a disease–drug pair *(s, d)*:
