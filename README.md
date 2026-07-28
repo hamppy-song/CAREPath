@@ -129,7 +129,7 @@ To align SuppKG with our mechanistic setting, construct a task-aligned subgraph 
 - `dsyn` → **disease**
 - `gngm`, `aapp`, `enzy` → **gene/protein**
 
-Then filter edges to keep only those whose both endpoints belong to the retained node sets, yielding a DDG-only subgraph. This filtered SuppKG subgraph contains **26,615 nodes and 147,038 edges** → `graph.txt`, `nodetypes.tsv`. Extract labeled drug–disease pairs and sample negatives at **1:1 ratio** → `dda_labels.tsv` (split with stratified sampling at 8:1:1). Join available substance IDs with DrugBank ATC codes where mappable → `7_drug_classification_df.tsv`.
+Then filter edges to keep only those whose both endpoints belong to the retained node sets, yielding a DDG-only subgraph. This filtered SuppKG subgraph contains **26,615 nodes and 147,038 edges** → `graph.txt`, `nodetypes.tsv`. Extract labeled drug–disease pairs and sample negatives at **1:1 ratio** → `dda_labels.tsv` (split with stratified sampling at 8:1:1). 
 
 ---
 
